@@ -4,22 +4,19 @@ using UnityEngine;
 
 public class EnemyController : MonoBehaviour
 {
-	public float speed = 3f;
-
-	private Camera camera;
 	private Rigidbody2D rb;
 	private Animator animator;
+	private Stats stats;
+	private Weapon weapon;
 
 	private GameObject player;
 
-	private bool dashing = false;
-	private bool alive = true;
-
 	void Start()
 	{
-		camera = Camera.main;
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
+		stats = GetComponent<Stats>();
+		weapon = GetComponentInChildren<Weapon>();
 
 		player = GameObject.FindWithTag("Player");
 
@@ -34,10 +31,10 @@ public class EnemyController : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if(alive && !dashing)
+		if(stats.alive && !stats.dashing)
 		{
 			float direction = Mathf.Sign(player.transform.position.x - transform.position.x);
-			rb.velocity = new Vector2(direction * speed, rb.velocity.y);
+			rb.velocity = new Vector2(direction * stats.speed, rb.velocity.y);
 			
 			transform.localScale = new Vector3(-direction, 1, 1);
 		}
@@ -47,18 +44,14 @@ public class EnemyController : MonoBehaviour
 	{
 		if(collision.collider.tag == "PlayerWeapon")
 		{
-			float direction = Mathf.Sign(player.transform.position.x - transform.position.x);
-			rb.AddForce(new Vector2(-direction * 10f, 0f), ForceMode2D.Impulse);
-
-			gameObject.SetLayer(9);
-			alive = false;
-			animator.SetTrigger("die");
+			Weapon weapon = collision.collider.GetComponent<Weapon>();
+			weapon.DealDamage(gameObject);
 		}
 	}
 
 	void OnDashEnded()
 	{
-		dashing = false;
+		stats.dashing = false;
 	}
 
 	IEnumerator Attack()
@@ -67,10 +60,9 @@ public class EnemyController : MonoBehaviour
 
 		while(true)
 		{
-			if(alive)
+			if(stats.alive)
 			{
-				animator.SetTrigger("swordAttack");
-				dashing = true;
+				weapon.Attack(gameObject);
 				yield return new WaitForSeconds(Random.Range(0.5f, 1f));
 			}
 			else

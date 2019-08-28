@@ -5,78 +5,94 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-	public float speed = 5f;
+	public LayerMask canJumpOn;
 
-	private Camera camera;
+	private Camera mainCamera;
 	private Rigidbody2D rb;
 	private Animator animator;
+	private Stats stats;
+	private Weapon weapon;
 
-	private bool dashing = false;
+	private bool grounded = false;
 
 	void Start()
 	{
-		camera = Camera.main;
+		mainCamera = Camera.main;
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
+		stats = GetComponent<Stats>();
+		weapon = GetComponentInChildren<Weapon>();
 	}
 
 
 	void Update()
 	{
-		if(Input.GetAxis("Horizontal") > 0.1)
-		{
-			animator.SetBool("walking", true);
-			transform.localScale = new Vector3(-1, 1, 1);
-		}
-		else if(Input.GetAxis("Horizontal") < -0.1)
-		{
-			animator.SetBool("walking", true);
-			transform.localScale = new Vector3(1, 1, 1);
-		}
-		else
-		{
-			animator.SetBool("walking", false);
-		}
+		grounded = Physics2D.OverlapArea(
+			new Vector2(transform.position.x - 0.125f, transform.position.y - 0.1f),
+			new Vector2(transform.position.x + 0.125f, transform.position.y - 0.2f),
+			canJumpOn
+		);
+		animator.SetBool("onAir", !grounded);
 
-		if(!dashing && Input.GetButtonDown("Fire1"))
+		if (stats.alive)
 		{
-			animator.SetTrigger("swordAttack");
-			dashing = true;
-			rb.AddForce(new Vector2(transform.localScale.x * -20f, 0f), ForceMode2D.Impulse);
+			if (Input.GetAxis("Horizontal") > 0.1)
+			{
+				animator.SetBool("walking", true);
+				transform.localScale = new Vector3(-1, 1, 1);
+			}
+			else if (Input.GetAxis("Horizontal") < -0.1)
+			{
+				animator.SetBool("walking", true);
+				transform.localScale = new Vector3(1, 1, 1);
+			}
+			else
+			{
+				animator.SetBool("walking", false);
+			}
+
+			if (!stats.dashing && Input.GetButtonDown("Fire1"))
+			{
+				weapon.Attack(gameObject);
+			}
 		}
 	}
 
 	void FixedUpdate()
 	{
-		if(!dashing && Mathf.Abs(Input.GetAxis("Horizontal")) > 0.1f)
+		if (stats.alive && !stats.dashing)
 		{
-			rb.velocity = new Vector2(Input.GetAxis("Horizontal") * speed, rb.velocity.y);
+			if (Mathf.Abs(Input.GetAxis("Horizontal")) > 0.1f)
+			{
+				rb.velocity = new Vector2(Input.GetAxis("Horizontal") * stats.speed, rb.velocity.y);
+			}
+			if(grounded && Input.GetButton("Jump"))
+			{
+				rb.AddForce(new Vector2(0f, 10f), ForceMode2D.Impulse);
+			}
 		}
 	}
 
 	void LateUpdate()
 	{
-		float x = transform.position.x - camera.aspect * camera.orthographicSize + 2f;
-		float y = camera.transform.position.y;
-		float z = camera.transform.position.z;
+		float x = transform.position.x - mainCamera.aspect * mainCamera.orthographicSize + 2f;
+		float y = mainCamera.transform.position.y;
+		float z = mainCamera.transform.position.z;
 
-		camera.transform.position = new Vector3(x, y, z);
+		mainCamera.transform.position = new Vector3(x, y, z);
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
 	{
 		if (collision.collider.tag == "EnemyWeapon")
 		{
-			float direction = Mathf.Sign(collision.transform.position.x - transform.position.x);
-			rb.AddForce(new Vector2(-direction * 10f, 0f), ForceMode2D.Impulse);
-
-			dashing = true;
-			animator.SetTrigger("hurt");
+			Weapon weapon = collision.collider.GetComponent<Weapon>();
+			weapon.DealDamage(gameObject);
 		}
 	}
 
 	void OnDashEnded()
 	{
-		dashing = false;
+		stats.dashing = false;
 	}
 }

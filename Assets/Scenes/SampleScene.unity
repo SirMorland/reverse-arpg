@@ -133,6 +133,7 @@ GameObject:
   - component: {fileID: 1046278}
   - component: {fileID: 1046277}
   - component: {fileID: 1046276}
+  - component: {fileID: 1046279}
   m_Layer: 0
   m_Name: Sword
   m_TagString: EnemyWeapon
@@ -317,13 +318,26 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 0.5, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1046279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1046274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1 &4940275
 GameObject:
   m_ObjectHideFlags: 0
@@ -825,6 +839,7 @@ GameObject:
   - component: {fileID: 110174515}
   - component: {fileID: 110174514}
   - component: {fileID: 110174513}
+  - component: {fileID: 110174516}
   m_Layer: 0
   m_Name: Sword
   m_TagString: EnemyWeapon
@@ -1009,13 +1024,26 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 0.5, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &110174516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 110174511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1 &154043957
 GameObject:
   m_ObjectHideFlags: 0
@@ -2249,6 +2277,7 @@ GameObject:
   - component: {fileID: 372540967}
   - component: {fileID: 372540966}
   - component: {fileID: 372540965}
+  - component: {fileID: 372540969}
   m_Layer: 0
   m_Name: Enemy (7)
   m_TagString: Enemy
@@ -2268,7 +2297,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4554ae25ea41a4fb16905bf345256e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
 --- !u!50 &372540966
 Rigidbody2D:
   serializedVersion: 4
@@ -2324,6 +2352,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &372540969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 372540964}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ddd61bf35546f46b0b59b55c67d603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  currentHp: 100
+  armor: 10
+  speed: 3
+  dashing: 0
+  alive: 1
 --- !u!1 &373733808
 GameObject:
   m_ObjectHideFlags: 0
@@ -2921,6 +2967,7 @@ GameObject:
   - component: {fileID: 475529610}
   - component: {fileID: 475529609}
   - component: {fileID: 475529608}
+  - component: {fileID: 475529611}
   m_Layer: 0
   m_Name: Sword
   m_TagString: EnemyWeapon
@@ -3105,13 +3152,26 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 0.5, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &475529611
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 475529606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1 &488933046
 GameObject:
   m_ObjectHideFlags: 0
@@ -3422,6 +3482,7 @@ GameObject:
   - component: {fileID: 509091242}
   - component: {fileID: 509091241}
   - component: {fileID: 509091240}
+  - component: {fileID: 509091244}
   m_Layer: 0
   m_Name: Enemy (4)
   m_TagString: Enemy
@@ -3441,7 +3502,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4554ae25ea41a4fb16905bf345256e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
 --- !u!50 &509091241
 Rigidbody2D:
   serializedVersion: 4
@@ -3497,6 +3557,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &509091244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 509091239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ddd61bf35546f46b0b59b55c67d603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  currentHp: 100
+  armor: 10
+  speed: 3
+  dashing: 0
+  alive: 1
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4183,6 +4261,7 @@ GameObject:
   - component: {fileID: 650576100}
   - component: {fileID: 650576099}
   - component: {fileID: 650576098}
+  - component: {fileID: 650576102}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -4202,7 +4281,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4554ae25ea41a4fb16905bf345256e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
 --- !u!50 &650576099
 Rigidbody2D:
   serializedVersion: 4
@@ -4258,6 +4336,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &650576102
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 650576097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ddd61bf35546f46b0b59b55c67d603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  currentHp: 100
+  armor: 10
+  speed: 3
+  dashing: 0
+  alive: 1
 --- !u!1 &678740970
 GameObject:
   m_ObjectHideFlags: 0
@@ -5939,6 +6035,7 @@ GameObject:
   - component: {fileID: 925705795}
   - component: {fileID: 925705794}
   - component: {fileID: 925705793}
+  - component: {fileID: 925705797}
   m_Layer: 0
   m_Name: Enemy (2)
   m_TagString: Enemy
@@ -5958,7 +6055,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4554ae25ea41a4fb16905bf345256e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
 --- !u!50 &925705794
 Rigidbody2D:
   serializedVersion: 4
@@ -6014,6 +6110,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &925705797
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 925705792}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ddd61bf35546f46b0b59b55c67d603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  currentHp: 100
+  armor: 10
+  speed: 3
+  dashing: 0
+  alive: 1
 --- !u!1 &940552822
 GameObject:
   m_ObjectHideFlags: 0
@@ -6417,6 +6531,7 @@ GameObject:
   - component: {fileID: 1029189784}
   - component: {fileID: 1029189783}
   - component: {fileID: 1029189782}
+  - component: {fileID: 1029189785}
   m_Layer: 0
   m_Name: Sword
   m_TagString: EnemyWeapon
@@ -6601,13 +6716,26 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 0.5, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1029189785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1029189780}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1 &1156531195
 GameObject:
   m_ObjectHideFlags: 0
@@ -6718,6 +6846,7 @@ GameObject:
   - component: {fileID: 1181092743}
   - component: {fileID: 1181092744}
   - component: {fileID: 1181092748}
+  - component: {fileID: 1181092746}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -6780,6 +6909,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1181092746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1181092742}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ddd61bf35546f46b0b59b55c67d603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  currentHp: 100
+  armor: 10
+  speed: 5
+  dashing: 0
+  alive: 1
 --- !u!114 &1181092748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6792,7 +6939,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f344c3917953aa247bfbab92da0245bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 5
+  canJumpOn:
+    serializedVersion: 2
+    m_Bits: 311
 --- !u!1 &1183888292
 GameObject:
   m_ObjectHideFlags: 0
@@ -7487,6 +7636,7 @@ GameObject:
   - component: {fileID: 1348553372}
   - component: {fileID: 1348553373}
   - component: {fileID: 1348553374}
+  - component: {fileID: 1348553375}
   m_Layer: 0
   m_Name: Sword
   m_TagString: PlayerWeapon
@@ -7550,7 +7700,7 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 0.5, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
@@ -7678,6 +7828,19 @@ TrailRenderer:
   m_MinVertexDistance: 0.1
   m_Autodestruct: 0
   m_Emitting: 1
+--- !u!114 &1348553375
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1348553370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 50
 --- !u!1 &1361342672
 GameObject:
   m_ObjectHideFlags: 0
@@ -8283,6 +8446,7 @@ GameObject:
   - component: {fileID: 1466889714}
   - component: {fileID: 1466889713}
   - component: {fileID: 1466889712}
+  - component: {fileID: 1466889715}
   m_Layer: 0
   m_Name: Sword
   m_TagString: EnemyWeapon
@@ -8467,13 +8631,26 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 0.5, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1466889715
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1466889710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1 &1470634454
 GameObject:
   m_ObjectHideFlags: 0
@@ -8686,6 +8863,7 @@ GameObject:
   - component: {fileID: 1511489948}
   - component: {fileID: 1511489947}
   - component: {fileID: 1511489946}
+  - component: {fileID: 1511489949}
   m_Layer: 0
   m_Name: Sword
   m_TagString: EnemyWeapon
@@ -8870,13 +9048,26 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 0.5, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1511489949
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1511489944}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1 &1523195040
 GameObject:
   m_ObjectHideFlags: 0
@@ -9182,6 +9373,7 @@ GameObject:
   - component: {fileID: 1646876135}
   - component: {fileID: 1646876134}
   - component: {fileID: 1646876133}
+  - component: {fileID: 1646876136}
   m_Layer: 0
   m_Name: Sword
   m_TagString: EnemyWeapon
@@ -9366,13 +9558,26 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 0.5, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1646876136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1646876131}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1 &1673710931
 GameObject:
   m_ObjectHideFlags: 0
@@ -10166,6 +10371,7 @@ GameObject:
   - component: {fileID: 1852047405}
   - component: {fileID: 1852047404}
   - component: {fileID: 1852047403}
+  - component: {fileID: 1852047407}
   m_Layer: 0
   m_Name: Enemy (5)
   m_TagString: Enemy
@@ -10185,7 +10391,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4554ae25ea41a4fb16905bf345256e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
 --- !u!50 &1852047404
 Rigidbody2D:
   serializedVersion: 4
@@ -10241,6 +10446,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1852047407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1852047402}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ddd61bf35546f46b0b59b55c67d603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  currentHp: 100
+  armor: 10
+  speed: 3
+  dashing: 0
+  alive: 1
 --- !u!1 &1865185027
 GameObject:
   m_ObjectHideFlags: 0
@@ -10253,6 +10476,7 @@ GameObject:
   - component: {fileID: 1865185030}
   - component: {fileID: 1865185029}
   - component: {fileID: 1865185028}
+  - component: {fileID: 1865185032}
   m_Layer: 0
   m_Name: Enemy (1)
   m_TagString: Enemy
@@ -10272,7 +10496,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4554ae25ea41a4fb16905bf345256e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
 --- !u!50 &1865185029
 Rigidbody2D:
   serializedVersion: 4
@@ -10328,6 +10551,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1865185032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1865185027}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ddd61bf35546f46b0b59b55c67d603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  currentHp: 100
+  armor: 10
+  speed: 3
+  dashing: 0
+  alive: 1
 --- !u!1 &1868877876
 GameObject:
   m_ObjectHideFlags: 0
@@ -10633,6 +10874,7 @@ GameObject:
   - component: {fileID: 1926731800}
   - component: {fileID: 1926731799}
   - component: {fileID: 1926731798}
+  - component: {fileID: 1926731801}
   m_Layer: 0
   m_Name: Sword
   m_TagString: EnemyWeapon
@@ -10817,13 +11059,26 @@ SpriteRenderer:
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 1
+  m_DrawMode: 0
   m_Size: {x: 0.5, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1926731801
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1926731796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 20
 --- !u!1 &1930484483
 GameObject:
   m_ObjectHideFlags: 0
@@ -11326,6 +11581,7 @@ GameObject:
   - component: {fileID: 2039719411}
   - component: {fileID: 2039719410}
   - component: {fileID: 2039719409}
+  - component: {fileID: 2039719413}
   m_Layer: 0
   m_Name: Enemy (3)
   m_TagString: Enemy
@@ -11345,7 +11601,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4554ae25ea41a4fb16905bf345256e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
 --- !u!50 &2039719410
 Rigidbody2D:
   serializedVersion: 4
@@ -11401,6 +11656,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2039719413
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2039719408}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ddd61bf35546f46b0b59b55c67d603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  currentHp: 100
+  armor: 10
+  speed: 3
+  dashing: 0
+  alive: 1
 --- !u!1 &2101634242
 GameObject:
   m_ObjectHideFlags: 0
@@ -11609,6 +11882,7 @@ GameObject:
   - component: {fileID: 2110527269}
   - component: {fileID: 2110527268}
   - component: {fileID: 2110527267}
+  - component: {fileID: 2110527271}
   m_Layer: 0
   m_Name: Enemy (6)
   m_TagString: Enemy
@@ -11628,7 +11902,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4554ae25ea41a4fb16905bf345256e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 3
 --- !u!50 &2110527268
 Rigidbody2D:
   serializedVersion: 4
@@ -11684,6 +11957,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2110527271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2110527266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05ddd61bf35546f46b0b59b55c67d603, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHp: 100
+  currentHp: 100
+  armor: 10
+  speed: 3
+  dashing: 0
+  alive: 1
 --- !u!1 &2139341755
 GameObject:
   m_ObjectHideFlags: 0

@@ -4,16 +4,27 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-	public float damage = 50f;
+	public float power = 50f;
+	public List<string> skills;
+
+	void Start()
+	{
+		if(skills == null)
+			skills = new List<string>();
+	}
 
 	public void Attack(GameObject attacker)
 	{
 		attacker.GetComponent<Animator>().SetTrigger("swordAttack");
 		attacker.GetComponent<Stats>().dashing = true;
-		attacker.GetComponent<Rigidbody2D>().AddForce(
-			new Vector2(attacker.transform.localScale.x * -20f, 0f),
-			ForceMode2D.Impulse
-		);
+
+		if(skills.Contains("dash"))
+		{ 
+			attacker.GetComponent<Rigidbody2D>().AddForce(
+				new Vector2(attacker.transform.localScale.x * -20f, 0f),
+				ForceMode2D.Impulse
+			);
+		}
 	}
 
 	public void DealDamage(GameObject target)
@@ -22,9 +33,14 @@ public class Weapon : MonoBehaviour
 
 		if(!stats.dashing)
 		{
-			stats.currentHp -= (damage - stats.armor);
+			float damage = power;
+			if (stats.armor != null)
+				damage -= stats.armor.armorValue;
+
+			stats.currentHp -= damage;
 
 			float direction = Mathf.Sign(target.transform.position.x - transform.position.x);
+
 			target.GetComponent<Rigidbody2D>().AddForce(
 				new Vector2(-direction * 10f, 0f),
 				ForceMode2D.Impulse

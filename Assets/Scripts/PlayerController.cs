@@ -5,13 +5,17 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+	public Stats stats;
+
 	public LayerMask canJumpOn;
 
 	private Camera mainCamera;
 	private Rigidbody2D rb;
 	private Animator animator;
-	private Stats stats;
 	private Weapon weapon;
+
+	private SpriteRenderer torso;
+	private Sprite naked;
 
 	private bool grounded = false;
 
@@ -22,8 +26,14 @@ public class PlayerController : MonoBehaviour
 		animator = GetComponent<Animator>();
 		stats = GetComponent<Stats>();
 		weapon = GetComponentInChildren<Weapon>();
-	}
 
+		torso = transform.Find("Torso").GetComponent<SpriteRenderer>();
+		naked = torso.sprite;
+		PutOnArmor(stats.armor);
+
+		if(weapon != null)
+			weapon.skills.Add("dash");
+	}
 
 	void Update()
 	{
@@ -53,7 +63,8 @@ public class PlayerController : MonoBehaviour
 
 			if (!stats.dashing && Input.GetButtonDown("Fire1"))
 			{
-				weapon.Attack(gameObject);
+				if(weapon != null)
+					weapon.Attack(gameObject);
 			}
 		}
 	}
@@ -88,6 +99,20 @@ public class PlayerController : MonoBehaviour
 		{
 			Weapon weapon = collision.collider.GetComponent<Weapon>();
 			weapon.DealDamage(gameObject);
+		}
+	}
+
+
+	public void PutOnArmor(Armor armor)
+	{
+		stats.armor = armor;
+		if(armor)
+		{
+			torso.sprite = stats.armor.sprite;
+		}
+		else
+		{
+			torso.sprite = naked;
 		}
 	}
 

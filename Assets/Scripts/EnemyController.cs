@@ -25,10 +25,6 @@ public class EnemyController : MonoBehaviour
 		StartCoroutine(Attack());
 	}
 
-	void Update()
-	{
-	}
-
 	void FixedUpdate()
 	{
 		if(stats.alive && !stats.dashing)

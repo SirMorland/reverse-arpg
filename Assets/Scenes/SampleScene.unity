@@ -338,6 +338,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  skills:
+  - dash
 --- !u!1 &4940275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1044,6 +1046,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  skills: []
 --- !u!1 &154043957
 GameObject:
   m_ObjectHideFlags: 0
@@ -3172,6 +3175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  skills: []
 --- !u!1 &488933046
 GameObject:
   m_ObjectHideFlags: 0
@@ -6736,6 +6740,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  skills: []
 --- !u!1 &1156531195
 GameObject:
   m_ObjectHideFlags: 0
@@ -7841,6 +7846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 50
+  skills: []
 --- !u!1 &1361342672
 GameObject:
   m_ObjectHideFlags: 0
@@ -8651,6 +8657,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  skills: []
 --- !u!1 &1470634454
 GameObject:
   m_ObjectHideFlags: 0
@@ -9068,6 +9075,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  skills: []
 --- !u!1 &1523195040
 GameObject:
   m_ObjectHideFlags: 0
@@ -9578,6 +9586,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  skills: []
 --- !u!1 &1673710931
 GameObject:
   m_ObjectHideFlags: 0
@@ -11079,6 +11088,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  skills: []
 --- !u!1 &1930484483
 GameObject:
   m_ObjectHideFlags: 0

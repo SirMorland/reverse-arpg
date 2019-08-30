@@ -416,7 +416,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  power: 50
+  skills: []
 --- !u!1 &4940275
 GameObject:
   m_ObjectHideFlags: 0
@@ -1254,7 +1255,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  power: 50
+  skills: []
 --- !u!1 &154043957
 GameObject:
   m_ObjectHideFlags: 0
@@ -2854,10 +2856,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   currentHp: 100
-  armor: 10
   speed: 3
   dashing: 0
   alive: 1
+  gold: 0
+  sp: 0
+  str: 0
+  dex: 0
+  vit: 0
+  lvl: 0
+  dmg: 0
+  atkSpd: 0
+  armor: {fileID: 0}
 --- !u!1 &373733808
 GameObject:
   m_ObjectHideFlags: 0
@@ -3738,7 +3748,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  power: 50
+  skills: []
 --- !u!1 &488933046
 GameObject:
   m_ObjectHideFlags: 0
@@ -4138,10 +4149,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   currentHp: 100
-  armor: 10
   speed: 3
   dashing: 0
   alive: 1
+  gold: 0
+  sp: 0
+  str: 0
+  dex: 0
+  vit: 0
+  lvl: 0
+  dmg: 0
+  atkSpd: 0
+  armor: {fileID: 0}
 --- !u!1 &519420028
 GameObject:
   m_ObjectHideFlags: 0
@@ -4918,10 +4937,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   currentHp: 100
-  armor: 10
   speed: 3
   dashing: 0
   alive: 1
+  gold: 0
+  sp: 0
+  str: 0
+  dex: 0
+  vit: 0
+  lvl: 0
+  dmg: 0
+  atkSpd: 0
+  armor: {fileID: 0}
 --- !u!1 &654681384
 GameObject:
   m_ObjectHideFlags: 0
@@ -7179,10 +7206,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   currentHp: 100
-  armor: 10
   speed: 3
   dashing: 0
   alive: 1
+  gold: 0
+  sp: 0
+  str: 0
+  dex: 0
+  vit: 0
+  lvl: 0
+  dmg: 0
+  atkSpd: 0
+  armor: {fileID: 0}
 --- !u!1 &940552822
 GameObject:
   m_ObjectHideFlags: 0
@@ -7476,6 +7511,7 @@ MonoBehaviour:
   greed: {fileID: 1829798594}
   sp: 5
   spLabel: {fileID: 470023}
+  player: {fileID: 1181092742}
 --- !u!1 &1010968984
 GameObject:
   m_ObjectHideFlags: 0
@@ -7887,7 +7923,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  power: 50
+  skills: []
 --- !u!1 &1156531195
 GameObject:
   m_ObjectHideFlags: 0
@@ -8075,10 +8112,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 1000
   currentHp: 1000
-  armor: 100
   speed: 5
   dashing: 0
   alive: 1
+  gold: 0
+  sp: 5
+  str: 101
+  dex: 102
+  vit: 103
+  lvl: 60
+  dmg: 10000
+  atkSpd: 5
+  armor: {fileID: 0}
 --- !u!114 &1181092748
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8091,6 +8136,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f344c3917953aa247bfbab92da0245bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 0}
   canJumpOn:
     serializedVersion: 2
     m_Bits: 311
@@ -9071,7 +9117,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  power: 50
+  skills: []
 --- !u!1 &1361342672
 GameObject:
   m_ObjectHideFlags: 0
@@ -10145,7 +10192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  power: 50
+  skills: []
 --- !u!1 &1470634454
 GameObject:
   m_ObjectHideFlags: 0
@@ -10694,7 +10742,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  power: 50
+  skills: []
 --- !u!1 &1523195040
 GameObject:
   m_ObjectHideFlags: 0
@@ -10890,6 +10939,7 @@ MonoBehaviour:
   greed: {fileID: 1829798594}
   sp: 5
   spLabel: {fileID: 470023}
+  player: {fileID: 1181092742}
 --- !u!1 &1531903965
 GameObject:
   m_ObjectHideFlags: 0
@@ -11405,7 +11455,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  power: 50
+  skills: []
 --- !u!1 &1673710931
 GameObject:
   m_ObjectHideFlags: 0
@@ -11601,6 +11652,7 @@ MonoBehaviour:
   greed: {fileID: 1829798594}
   sp: 5
   spLabel: {fileID: 470023}
+  player: {fileID: 1181092742}
 --- !u!1 &1705016237
 GameObject:
   m_ObjectHideFlags: 0
@@ -12478,10 +12530,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   currentHp: 100
-  armor: 10
   speed: 3
   dashing: 0
   alive: 1
+  gold: 0
+  sp: 0
+  str: 0
+  dex: 0
+  vit: 0
+  lvl: 0
+  dmg: 0
+  atkSpd: 0
+  armor: {fileID: 0}
 --- !u!1 &1865185027
 GameObject:
   m_ObjectHideFlags: 0
@@ -12583,10 +12643,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   currentHp: 100
-  armor: 10
   speed: 3
   dashing: 0
   alive: 1
+  gold: 0
+  sp: 0
+  str: 0
+  dex: 0
+  vit: 0
+  lvl: 0
+  dmg: 0
+  atkSpd: 0
+  armor: {fileID: 0}
 --- !u!1 &1868877876
 GameObject:
   m_ObjectHideFlags: 0
@@ -13096,7 +13164,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 20
+  power: 50
+  skills: []
 --- !u!1 &1930484483
 GameObject:
   m_ObjectHideFlags: 0
@@ -13767,10 +13836,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   currentHp: 100
-  armor: 10
   speed: 3
   dashing: 0
   alive: 1
+  gold: 0
+  sp: 0
+  str: 0
+  dex: 0
+  vit: 0
+  lvl: 0
+  dmg: 0
+  atkSpd: 0
+  armor: {fileID: 0}
 --- !u!1 &2101634242
 GameObject:
   m_ObjectHideFlags: 0
@@ -14068,10 +14145,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHp: 100
   currentHp: 100
-  armor: 10
   speed: 3
   dashing: 0
   alive: 1
+  gold: 0
+  sp: 0
+  str: 0
+  dex: 0
+  vit: 0
+  lvl: 0
+  dmg: 0
+  atkSpd: 0
+  armor: {fileID: 0}
 --- !u!1 &2122914755
 GameObject:
   m_ObjectHideFlags: 0

@@ -14,5 +14,19 @@ public class Stats : MonoBehaviour
 
 	public int gold = 0;
 
-	public Armor armor;
+    //Stat window stats
+    public int sp;
+    public int str;
+    public int dex;
+    public int vit;
+    public int lvl;
+    public int dmg;
+    public float atkSpd;
+
+    public Armor armor;
+
+    public void SpDecrease()
+    {
+        sp -= 1;
+    }
 }

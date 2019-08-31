@@ -4,24 +4,29 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
-	public float power = 50f;
 	public List<string> skills;
+
+	private CharacterController ch;
 
 	void Start()
 	{
+		ch = GetComponentInParent<CharacterController>();
+
 		if(skills == null)
 			skills = new List<string>();
 	}
 
-	public void Attack(GameObject attacker)
+	public void Attack()
 	{
-		attacker.GetComponent<Animator>().SetTrigger("swordAttack");
-		attacker.GetComponent<Stats>().dashing = true;
+		ch.animator.SetFloat("attackSpeed", ch.stats.AttackSpeed);
+		ch.animator.SetTrigger("swordAttack");
+		ch.stats.dashing = true;
 
 		if(skills.Contains("dash"))
-		{ 
-			attacker.GetComponent<Rigidbody2D>().AddForce(
-				new Vector2(attacker.transform.localScale.x * -20f, 0f),
+		{
+			ch.rb.velocity = new Vector3(0f, ch.rb.velocity.y);
+			ch.rb.AddForce(
+				new Vector2(ch.transform.localScale.x * -20f, 0f),
 				ForceMode2D.Impulse
 			);
 		}
@@ -33,11 +38,11 @@ public class Weapon : MonoBehaviour
 
 		if(!stats.dashing)
 		{
-			float damage = power;
+			float damage = ch.stats.Damage;
 			if (stats.armor != null)
 				damage -= stats.armor.armorValue;
 
-			stats.currentHp -= damage;
+			stats.currentHp -= Mathf.Max(0f, damage);
 
 			float direction = Mathf.Sign(target.transform.position.x - transform.position.x);
 
@@ -49,6 +54,8 @@ public class Weapon : MonoBehaviour
 			if (stats.currentHp <= 0)
 			{
 				stats.currentHp = 0;
+
+				ch.GainExp(stats.exp);
 
 				target.SetLayer(9);
 				stats.alive = false;

@@ -2,21 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyController : MonoBehaviour
+public class EnemyController : CharacterController
 {
-	private Rigidbody2D rb;
-	private Animator animator;
-	private Stats stats;
-	private Weapon weapon;
-
 	private GameObject player;
 
-	void Start()
+	protected override void Start()
 	{
-		rb = GetComponent<Rigidbody2D>();
-		animator = GetComponent<Animator>();
-		stats = GetComponent<Stats>();
-		weapon = GetComponentInChildren<Weapon>();
+		base.Start();
 
 		player = GameObject.FindWithTag("Player");
 
@@ -27,7 +19,7 @@ public class EnemyController : MonoBehaviour
 
 	void FixedUpdate()
 	{
-		if(stats.alive && !stats.dashing)
+		if(stats.alive && !stats.dashing && Vector3.Distance(transform.position, player.transform.position) < 8f)
 		{
 			float direction = Mathf.Sign(player.transform.position.x - transform.position.x);
 			rb.velocity = new Vector2(direction * stats.speed, rb.velocity.y);
@@ -45,11 +37,6 @@ public class EnemyController : MonoBehaviour
 		}
 	}
 
-	void OnDashEnded()
-	{
-		stats.dashing = false;
-	}
-
 	IEnumerator Attack()
 	{
 		yield return new WaitForSeconds(Random.Range(0.5f, 1f));
@@ -58,8 +45,12 @@ public class EnemyController : MonoBehaviour
 		{
 			if(stats.alive)
 			{
-				weapon.Attack(gameObject);
-				yield return new WaitForSeconds(Random.Range(0.5f, 1f));
+				if (Vector3.Distance(transform.position, player.transform.position) < 8f)
+				{
+					weapon.Attack();
+				}
+
+				yield return new WaitForSeconds(Random.Range(0.5f, 1f) / stats.AttackSpeed);
 			}
 			else
 			{

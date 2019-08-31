@@ -4,23 +4,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class PlayerController : MonoBehaviour
+public class PlayerController : CharacterController
 {
-	public Stats stats;
+	public GameObject pointWindow;
 
 	public LayerMask canJumpOn;
-	
-	private Rigidbody2D rb;
-	private Animator animator;
-	private Weapon weapon;
 
 	private SpriteRenderer torso;
 	private Sprite naked;
 
 	private bool grounded = false;
 
-	void Start()
+	private string nextLevel = "DemonLevel";
+	private bool loadingScene = false;
+
+	protected override void Start()
 	{
+		base.Start();
+
 		DontDestroyOnLoad(gameObject);
 
 		rb = GetComponent<Rigidbody2D>();
@@ -65,7 +66,7 @@ public class PlayerController : MonoBehaviour
 			if (!stats.dashing && Input.GetButtonDown("Fire1"))
 			{
 				if(weapon != null)
-					weapon.Attack(gameObject);
+					weapon.Attack();
 			}
 		}
 	}
@@ -80,7 +81,7 @@ public class PlayerController : MonoBehaviour
 			}
 			if(grounded && Input.GetButton("Jump"))
 			{
-				rb.AddForce(new Vector2(0f, 10f), ForceMode2D.Impulse);
+				rb.AddForce(new Vector2(0f, 25f), ForceMode2D.Impulse);
 			}
 		}
 	}
@@ -93,6 +94,8 @@ public class PlayerController : MonoBehaviour
 		float z = mainCamera.transform.position.z;
 
 		mainCamera.transform.position = new Vector3(x, y, z);
+
+		transform.position = new Vector3(transform.position.x, Mathf.Max(-1.75f, transform.position.y), transform.position.z);
 	}
 
 	void OnCollisionEnter2D(Collision2D collision)
@@ -104,15 +107,47 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	private void OnTriggerEnter2D(Collider2D collision)
+	private void OnTriggerEnter2D(Collider2D collider)
 	{
-		AsyncOperation ao = SceneManager.LoadSceneAsync("SampleScene");
-		ao.completed += OnSceneLoaded;
+		if(!loadingScene)
+		{
+			loadingScene = true;
+			stats.currentHp = stats.MaxHp;
+
+			AsyncOperation ao = SceneManager.LoadSceneAsync(nextLevel.Split('-')[0]);
+			ao.completed += OnSceneLoaded;
+
+			switch (nextLevel)
+			{
+				case "DemonLevel":
+					nextLevel = "Town-3";
+					break;
+				case "Town-3":
+					nextLevel = "OrcLevel";
+					break;
+				case "OrcLevel":
+					nextLevel = "Town-2";
+					break;
+				case "Town-2":
+					nextLevel = "FarmerLevel";
+					break;
+				case "FarmerLevel":
+					nextLevel = "Town-1";
+					break;
+				case "Town-1":
+					nextLevel = "FinalBoss";
+					break;
+				default:
+					nextLevel = "BonusLevel";
+					break;
+			}
+		}
 	}
 
 	void OnSceneLoaded(AsyncOperation ao)
 	{
 		transform.position = new Vector3(0, -1.5f, 0);
+		loadingScene = false;
 	}
 
 
@@ -129,8 +164,17 @@ public class PlayerController : MonoBehaviour
 		}
 	}
 
-	void OnDashEnded()
+	public override void GainExp(int amount)
 	{
-		stats.dashing = false;
+		base.GainExp(amount);
+		if(stats.exp >= 10)
+		{
+			stats.exp -= 10;
+			stats.lvl--;
+			stats.sp += 10;
+			GameObject newWindow = Instantiate(pointWindow);
+			newWindow.transform.SetParent(Camera.main.transform);
+			newWindow.transform.localPosition = new Vector3(0f, 0f, 10f);
+		}
 	}
 }

@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/Scenes/Town.unity
+    guid: 3cd1c187986135f448e2d6151121a79a
+  - enabled: 1
+    path: Assets/Scenes/DemonLevel.unity
+    guid: c5e70e253ceed9045ade4a5c61e5085e
+  - enabled: 1
+    path: Assets/Scenes/OrcLevel.unity
+    guid: 40785daba793ef245909dd2bf7cf9108
+  - enabled: 1
+    path: Assets/Scenes/FarmerLevel.unity
+    guid: 7445e7fe6547f2849b778ff8d3251989
   m_configObjects: {}

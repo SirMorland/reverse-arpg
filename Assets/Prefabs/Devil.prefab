@@ -615,7 +615,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 50
   skills:
   - dash
 --- !u!61 &4375115230080112403
@@ -1219,6 +1218,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ac4554ae25ea41a4fb16905bf345256e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  animator: {fileID: 0}
+  stats: {fileID: 0}
 --- !u!114 &5838462983723574628
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1231,19 +1233,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ddd61bf35546f46b0b59b55c67d603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
-  currentHp: 100
+  currentHp: 0
   speed: 3
   dashing: 0
   alive: 1
   gold: 0
-  sp: 0
-  str: 0
-  dex: 0
-  vit: 0
   lvl: 0
-  dmg: 0
-  atkSpd: 0
+  exp: 1
+  sp: 0
+  str: 24
+  dex: 50
+  vit: 100
   armor: {fileID: 0}
   oldArmor: {fileID: 0}
 --- !u!1 &5838462983771260471

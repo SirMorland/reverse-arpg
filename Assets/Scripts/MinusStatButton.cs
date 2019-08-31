@@ -10,7 +10,13 @@ public class MinusStatButton : MonoBehaviour
     public Text greed;
     public Text spLabel;
 
-    private Animator animator;
+	public Text lvl;
+	public Text dmg;
+	public Text atkspd;
+	public Text hp;
+	public Text armor;
+
+	private Animator animator;
     private Button button;
     private Stats stats;
 
@@ -40,7 +46,9 @@ public class MinusStatButton : MonoBehaviour
 
         label.text = stat.ToString();
         spLabel.text = $"Points to be sacrificed: {stats.sp}";
-    }
+
+		UpdateStatDisplay();
+	}
 
     void Update()
     {
@@ -74,12 +82,24 @@ public class MinusStatButton : MonoBehaviour
                 break;
             default:
                 break;
-        }
+		}
 
-        if(stats.sp <= 0)
+		UpdateStatDisplay();
+
+		if (stats.sp <= 0)
         {
             Time.timeScale = 1f;
             animator.SetTrigger("close");
-        }
+			Destroy(pointWindow, 1f);
+		}
     }
+
+	private void UpdateStatDisplay()
+	{
+		lvl.text = $"{stats.lvl}/30";
+		dmg.text = stats.Damage.ToString();
+		atkspd.text = stats.AttackSpeed.ToString();
+		hp.text = $"{stats.currentHp}/{stats.MaxHp.ToString()}";
+		armor.text = stats.armor.armorValue.ToString();
+	}
 }

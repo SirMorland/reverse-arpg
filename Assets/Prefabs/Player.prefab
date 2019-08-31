@@ -418,7 +418,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8324232e559c824e8c9730f721ca933, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  power: 50
   skills: []
 --- !u!1 &3211200076435285701
 GameObject:
@@ -605,7 +604,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f344c3917953aa247bfbab92da0245bb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  rb: {fileID: 0}
+  animator: {fileID: 0}
   stats: {fileID: 0}
+  pointWindow: {fileID: 0}
   canJumpOn:
     serializedVersion: 2
     m_Bits: 311
@@ -621,20 +623,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05ddd61bf35546f46b0b59b55c67d603, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  maxHp: 100
-  currentHp: 100
+  currentHp: 0
   speed: 5
   dashing: 0
   alive: 1
   gold: 0
+  lvl: 30
+  exp: 0
   sp: 0
-  str: 0
-  dex: 0
-  vit: 0
-  lvl: 0
-  dmg: 0
-  atkSpd: 0
-  armor: {fileID: 0}
+  str: 100
+  dex: 100
+  vit: 100
+  armor: {fileID: 11400000, guid: 325b8d0515604584483fc66482825e4c, type: 2}
   oldArmor: {fileID: 0}
 --- !u!1 &3211200076678809280
 GameObject:

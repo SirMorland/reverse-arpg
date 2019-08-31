@@ -18,6 +18,8 @@ public class PlayerController : CharacterController
 	private string nextLevel = "DemonLevel";
 	private bool loadingScene = false;
 
+	private bool gameEnding = false;
+
 	protected override void Start()
 	{
 		base.Start();
@@ -68,6 +70,11 @@ public class PlayerController : CharacterController
 				if(weapon != null)
 					weapon.Attack();
 			}
+		}
+		else if(!gameEnding)
+		{
+			gameEnding = true;
+			StartCoroutine(EndGame());
 		}
 	}
 
@@ -176,5 +183,12 @@ public class PlayerController : CharacterController
 			newWindow.transform.SetParent(Camera.main.transform);
 			newWindow.transform.localPosition = new Vector3(0f, 0f, 10f);
 		}
+	}
+
+	IEnumerator EndGame()
+	{
+		yield return new WaitForSeconds(2f);
+
+		SceneManager.LoadScene("ViltsuHiekkakuutio");
 	}
 }

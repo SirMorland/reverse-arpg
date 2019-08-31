@@ -22,6 +22,8 @@ public class ShopController : MonoBehaviour
     {
 		player = GameObject.FindGameObjectWithTag("Player");
 		pc = player.GetComponent<PlayerController>();
+		if (pc.stats.armor == null && pc.stats.oldArmor != null)
+			armor = pc.stats.oldArmor.downGrade;
 
 		head = transform.Find("Torso").Find("Head").gameObject;
 		speechBubble = transform.Find("SpeechBubble").gameObject;
@@ -54,12 +56,13 @@ public class ShopController : MonoBehaviour
 				{
 					pc.stats.gold += pc.stats.armor.sellPrice;
 					armor = pc.stats.armor.downGrade;
+					pc.stats.oldArmor = pc.stats.armor;
 					pc.PutOnArmor(null);
 				}
 			}
 			else if(armor != null && pc.stats.armor == null && pc.stats.gold >= armor.buyPrice)
 			{
-				speechText.text = $"Awfully naked you look...\nI can sell you a {armor.name} for {armor.buyPrice} gold.";
+				speechText.text = $"Awfully naked you look...\nI can sell you a{(armor.name.StartsWith("I") ? "n" : "")} {armor.name} for {armor.buyPrice} gold.";
 
 				xboxButton.transform.localScale = Vector3.Lerp(xboxButton.transform.localScale, new Vector3(1f, 1f, 1f), Time.deltaTime * 10f);
 				prompt.transform.localScale = Vector3.Lerp(prompt.transform.localScale, new Vector3(0.01f, 0.01f, 1f), Time.deltaTime * 5f);

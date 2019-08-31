@@ -24,9 +24,5 @@ public class Stats : MonoBehaviour
     public float atkSpd;
 
     public Armor armor;
-
-    public void SpDecrease()
-    {
-        sp -= 1;
-    }
+	public Armor oldArmor;
 }

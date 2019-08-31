@@ -63,7 +63,7 @@ public class Weapon : MonoBehaviour
 				animator.SetFloat("direction", target.transform.localScale.x);
 				animator.SetBool("dead", true);
 			}
-			else
+			else if(damage > 0)
 			{
 				stats.dashing = true;
 				target.GetComponent<Animator>().SetTrigger("hurt");

@@ -28,15 +28,6 @@ public class EnemyController : CharacterController
 		}
 	}
 
-	void OnCollisionEnter2D(Collision2D collision)
-	{
-		if(collision.collider.tag == "PlayerWeapon")
-		{
-			Weapon weapon = collision.collider.GetComponent<Weapon>();
-			weapon.DealDamage(gameObject);
-		}
-	}
-
 	IEnumerator Attack()
 	{
 		yield return new WaitForSeconds(Random.Range(0.5f, 1f));

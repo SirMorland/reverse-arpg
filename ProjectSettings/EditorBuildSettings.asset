@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/FarmerLevel.unity
     guid: 7445e7fe6547f2849b778ff8d3251989
+  - enabled: 1
+    path: Assets/Scenes/FinalBoss.unity
+    guid: 4ee1919dc2b8e664e979492b45a12005
   m_configObjects: {}

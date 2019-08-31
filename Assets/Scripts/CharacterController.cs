@@ -22,6 +22,15 @@ public class CharacterController : MonoBehaviour
 		stats.dashing = false;
 	}
 
+	void OnCollisionEnter2D(Collision2D collision)
+	{
+		if (collision.collider.tag == "PlayerWeapon")
+		{
+			Weapon weapon = collision.collider.GetComponent<Weapon>();
+			weapon.DealDamage(gameObject);
+		}
+	}
+
 	public virtual void GainExp(int amount)
 	{
 		stats.exp += amount;

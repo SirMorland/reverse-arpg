@@ -2,14 +2,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour
 {
 	public Stats stats;
 
 	public LayerMask canJumpOn;
-
-	private Camera mainCamera;
+	
 	private Rigidbody2D rb;
 	private Animator animator;
 	private Weapon weapon;
@@ -21,7 +21,8 @@ public class PlayerController : MonoBehaviour
 
 	void Start()
 	{
-		mainCamera = Camera.main;
+		DontDestroyOnLoad(gameObject);
+
 		rb = GetComponent<Rigidbody2D>();
 		animator = GetComponent<Animator>();
 		stats = GetComponent<Stats>();
@@ -86,6 +87,7 @@ public class PlayerController : MonoBehaviour
 
 	void LateUpdate()
 	{
+		Camera mainCamera = Camera.main;
 		float x = transform.position.x - mainCamera.aspect * mainCamera.orthographicSize + 2f;
 		float y = mainCamera.transform.position.y;
 		float z = mainCamera.transform.position.z;
@@ -100,6 +102,17 @@ public class PlayerController : MonoBehaviour
 			Weapon weapon = collision.collider.GetComponent<Weapon>();
 			weapon.DealDamage(gameObject);
 		}
+	}
+
+	private void OnTriggerEnter2D(Collider2D collision)
+	{
+		AsyncOperation ao = SceneManager.LoadSceneAsync("SampleScene");
+		ao.completed += OnSceneLoaded;
+	}
+
+	void OnSceneLoaded(AsyncOperation ao)
+	{
+		transform.position = new Vector3(0, -1.5f, 0);
 	}
 
 

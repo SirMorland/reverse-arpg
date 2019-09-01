@@ -189,6 +189,6 @@ public class PlayerController : CharacterController
 	{
 		yield return new WaitForSeconds(2f);
 
-		SceneManager.LoadScene("ViltsuHiekkakuutio");
+		SceneManager.LoadScene("DemonLevel");
 	}
 }

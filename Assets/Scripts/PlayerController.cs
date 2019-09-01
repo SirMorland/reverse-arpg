@@ -15,7 +15,7 @@ public class PlayerController : CharacterController
 
 	private bool grounded = false;
 
-	private string nextLevel = "DemonLevel";
+	private string nextLevel = "Town-3";
 	private bool loadingScene = false;
 
 	private bool gameEnding = false;
@@ -190,5 +190,6 @@ public class PlayerController : CharacterController
 		yield return new WaitForSeconds(2f);
 
 		SceneManager.LoadScene("DemonLevel");
+		Destroy(gameObject);
 	}
 }
